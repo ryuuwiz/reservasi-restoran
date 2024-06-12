@@ -6,6 +6,8 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -31,4 +33,7 @@ public class Reservasi {
     @NotNull
     @Column
     private String jam_reservasi;
+
+    @OneToMany(mappedBy = "reservasi", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Pesanan> pesanan = new ArrayList<>();
 }
