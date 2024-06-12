@@ -36,6 +36,7 @@
             <td th:text="${reservasi.tgl_reservasi}"></td>
             <td th:text="${reservasi.jam_reservasi}"></td>
             <td>
+              <a href="#" class="btn btn-success">Pesanan</a>
               <a
                 th:href="@{reservasi/ubah/{id}(id=${reservasi.id})}"
                 class="btn btn-secondary"
