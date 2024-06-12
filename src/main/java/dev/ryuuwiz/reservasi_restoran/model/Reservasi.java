@@ -6,7 +6,6 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 @Entity
 @Data
@@ -31,5 +30,5 @@ public class Reservasi {
 
     @NotNull
     @Column
-    private LocalTime jam_reservasi;
+    private String jam_reservasi;
 }
