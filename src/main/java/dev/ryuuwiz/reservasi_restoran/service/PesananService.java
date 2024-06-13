@@ -35,4 +35,8 @@ public class PesananService {
     return pesananByReservasi.stream().map(Mapper::mapPesananDto).collect(Collectors.toList());
   }
 
+  public void hapus(Integer id) {
+    pesananRepo.deleteById(id);
+  }
+
 }

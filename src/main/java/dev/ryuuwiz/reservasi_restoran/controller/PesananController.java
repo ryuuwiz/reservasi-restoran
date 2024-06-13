@@ -1,5 +1,7 @@
 package dev.ryuuwiz.reservasi_restoran.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,12 +33,17 @@ public class PesananController {
 
   @PostMapping("/reservasi/{id}/pesanan")
   public String simpan(@PathVariable("id") Integer id, @Valid PesananDto pesananDto, BindingResult result) {
-    String path = "redirect:/" + "/reservasi/" + id + "/pesanan";
-
     if (result.hasErrors()) {
       return "tambah-pesanan";
     }
     pesananService.simpan(id, pesananDto);
-    return path;
+    return "redirect:/reservasi/{id}/pesanan";
+  }
+
+  @GetMapping("/reservasi/{id}/pesanan/{id_pesanan}")
+  public String hapus(@PathVariable Map<String, String> pvMap) {
+    Integer id_pesanan = Integer.valueOf(pvMap.get("id_pesanan"));
+    pesananService.hapus(id_pesanan);
+    return "redirect:/reservasi/{id}/pesanan";
   }
 }

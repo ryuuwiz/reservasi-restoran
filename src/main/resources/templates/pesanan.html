@@ -45,12 +45,12 @@
             ></td>
             <td>
               <a
-                th:href="@{/reservasi/ubah/{id}(id=${reservasi.id})}"
+                th:href="@{/pesanan/ubah/{id}(id=${pesanan.id})}"
                 class="btn btn-secondary"
                 >Ubah</a
               >
               <a
-                th:href="@{/reservasi/hapus/{id}(id=${reservasi.id})}"
+                th:href="@{/reservasi/{id}(id=${reservasi.id})} + @{/pesanan/{id_pesanan}(id_pesanan=${pesanan.id})}"
                 class="btn btn-danger"
                 >Hapus</a
               >
