@@ -1,5 +1,6 @@
 package dev.ryuuwiz.reservasi_restoran.dto;
 
+import dev.ryuuwiz.reservasi_restoran.model.Pesanan;
 import dev.ryuuwiz.reservasi_restoran.model.Reservasi;
 
 public class Mapper {
@@ -15,6 +16,16 @@ public class Mapper {
         return reservasiDto;
     }
 
+    public static PesananDto mapPesananDto(Pesanan pesanan) {
+        PesananDto pesananDto = new PesananDto();
+        pesananDto.setId(pesanan.getId());
+        pesananDto.setNama_pesanan(pesanan.getNama_pesanan());
+        pesananDto.setJumlah(pesanan.getJumlah());
+        pesananDto.setHarga(pesanan.getHarga());
+
+        return pesananDto;
+    }
+
     public static Reservasi mapReservasi(ReservasiDto reservasiDto) {
         Reservasi reservasi = new Reservasi();
         reservasi.setNo_meja(reservasiDto.getNo_meja());
@@ -23,5 +34,16 @@ public class Mapper {
         reservasi.setJam_reservasi(reservasiDto.getJam_reservasi());
 
         return reservasi;
+    }
+
+    public static Pesanan mapPesanan(Reservasi reservasi, PesananDto pesanandDto) {
+        Pesanan pesanan = new Pesanan();
+        pesanan.setId(pesanandDto.getId());
+        pesanan.setReservasi(reservasi);
+        pesanan.setNama_pesanan(pesanandDto.getNama_pesanan());
+        pesanan.setJumlah(pesanandDto.getJumlah());
+        pesanan.setHarga(pesanandDto.getHarga());
+
+        return pesanan;
     }
 }
