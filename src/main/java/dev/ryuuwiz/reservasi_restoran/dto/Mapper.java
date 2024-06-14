@@ -38,7 +38,6 @@ public class Mapper {
 
     public static Pesanan mapPesanan(Reservasi reservasi, PesananDto pesanandDto) {
         Pesanan pesanan = new Pesanan();
-        pesanan.setId(pesanandDto.getId());
         pesanan.setReservasi(reservasi);
         pesanan.setNama_pesanan(pesanandDto.getNama_pesanan());
         pesanan.setJumlah(pesanandDto.getJumlah());

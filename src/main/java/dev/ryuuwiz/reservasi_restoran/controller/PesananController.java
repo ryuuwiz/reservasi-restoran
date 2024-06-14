@@ -25,13 +25,19 @@ public class PesananController {
   PesananService pesananService;
 
   @GetMapping("/reservasi/{id}/pesanan")
-  public String PesananView(@PathVariable("id") Integer id, Model model) {
+  public String pesananView(@PathVariable("id") Integer id, Model model) {
     model.addAttribute("reservasi", reservasiService.satu(id));
     model.addAttribute("allPesanan", pesananService.semua(id));
     return "pesanan";
   }
 
-  @PostMapping("/reservasi/{id}/pesanan")
+  @GetMapping("/reservasi/{id}/pesanan/simpan")
+  public String simpanPesananView(@PathVariable("id") Integer id, Model model) {
+    model.addAttribute("reservasi", reservasiService.satu(id));
+    return "tambah-pesanan";
+  }
+
+  @PostMapping("/reservasi/{id}/pesanan/simpan")
   public String simpan(@PathVariable("id") Integer id, @Valid PesananDto pesananDto, BindingResult result) {
     if (result.hasErrors()) {
       return "tambah-pesanan";
