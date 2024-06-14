@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import dev.ryuuwiz.reservasi_restoran.dto.Mapper;
 import dev.ryuuwiz.reservasi_restoran.dto.PesananDto;
-import dev.ryuuwiz.reservasi_restoran.dto.ReservasiDto;
 import dev.ryuuwiz.reservasi_restoran.model.Pesanan;
 import dev.ryuuwiz.reservasi_restoran.model.Reservasi;
 import dev.ryuuwiz.reservasi_restoran.repository.PesananRepo;
