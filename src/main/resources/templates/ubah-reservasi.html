@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reservasi Restoran</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container-md mt-4">
+      <h1 class="fw-bold mb-4">Ubah Reservasi</h1>
+      <a th:href="@{/}" class="btn btn-secondary mb-3">Kembali</a>
+      <form
+        class="mt-3 border border-1 p-3"
+        th:action="@{/reservasi/ubah/{id}(id=${reservasi.id})}"
+        th:object="${reservasiDto}"
+        method="post"
+      >
+        <div class="mb-3">
+          <label for="no_meja" class="form-label">Nomor Meja</label>
+          <input
+            type="number"
+            class="form-control"
+            id="no_meja"
+            name="no_meja"
+            th:value="${reservasi.no_meja}"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="nama_pelanggan" class="form-label">Nama Pelanggan</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nama_pelanggan"
+            name="nama_pelanggan"
+            th:value="${reservasi.nama_pelanggan}"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="tgl_reservasi" class="form-label"
+            >Tanggal Reservasi</label
+          >
+          <input
+            type="date"
+            class="form-control"
+            id="tgl_reservasi"
+            name="tgl_reservasi"
+            th:value="${reservasi.tgl_reservasi}"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="jam_reservasi" class="form-label">Jam Reservasi</label>
+          <input
+            type="time"
+            class="form-control"
+            id="jam_reservasi"
+            name="jam_reservasi"
+            th:value="${reservasi.jam_reservasi}"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-danger">Reset</button>
+      </form>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
